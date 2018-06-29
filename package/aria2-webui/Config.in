@@ -1,0 +1,7 @@
+config BR2_PACKAGE_ARIA2_WEBUI
+	bool "aria2-webui"
+    depends on BR2_PACKAGE_UHTTPD
+	help
+	  Aria2 WebUI.
+
+	  https://github.com/ziahamza/webui-aria2

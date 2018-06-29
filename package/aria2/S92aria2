@@ -1,0 +1,34 @@
+#!/bin/sh
+
+NAME=aria2c
+ARIA2C=/usr/bin/$NAME
+PIDFILE=/var/run/$NAME.pid
+CONF=/etc/aria2.conf
+ARGS="--conf-path=${CONF}"
+USER="aria2"
+GROUP="aria2"
+
+test -f $ARIA2C || exit 0
+
+[ -r /etc/default/$NAME ] && . /etc/default/$NAME
+
+case "$1" in
+start)
+        echo "Starting aria2c" "aria2c"
+        start-stop-daemon --start --quiet -b -m --pidfile $PIDFILE --chuid $USER:$GROUP --startas $ARIA2C -- $ARGS
+        ;;
+stop)
+        echo "Stopping aria2c" "aria2c"
+        start-stop-daemon --stop --quiet --pidfile $PIDFILE
+        ;;
+restart|reload|force-reload)
+        echo "Restarting aria2c" "aria2c"
+        start-stop-daemon --stop --retry 5 --quiet --pidfile $PIDFILE
+        start-stop-daemon --start --quiet -b -m --pidfile $PIDFILE --chuid $USER:$GROUP --startas $ARIA2C -- $ARGS
+        ;;
+*)
+        echo "Usage: /etc/init.d/aria2c {start|stop|restart|reload|force-reload}"
+        exit 2
+        ;;
+esac
+exit 0
