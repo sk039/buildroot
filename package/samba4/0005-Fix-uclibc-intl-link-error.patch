@@ -1,0 +1,27 @@
+diff -Nur samba4-4.8.2.orig/lib/replace/wscript samba4-4.8.2/lib/replace/wscript
+--- samba4-4.8.2.orig/lib/replace/wscript	2018-06-22 15:11:11.903169132 +0800
++++ samba4-4.8.2/lib/replace/wscript	2018-06-22 15:11:45.783406543 +0800
+@@ -416,17 +416,17 @@
+         conf.CHECK_FUNCS_IN('bindtextdomain textdomain bind_textdomain_codeset',
+                             '', checklibc=True, headers='libintl.h')
+         # gettext and dgettext must exist
+-        # on some systems (the ones with glibc, those are in libc)
+-        if conf.CHECK_FUNCS_IN('dgettext gettext', '', checklibc=True, headers='libintl.h'):
+-            # save for dependency definitions
+-            conf.env.intl_libs=''
+-        # others (e.g. FreeBSD) have separate libintl
+-        elif conf.CHECK_FUNCS_IN('dgettext gettext', 'intl', checklibc=False, headers='libintl.h'):
++        # on some systems (e.g. FreeBSD) have separate libintl
++        if conf.CHECK_FUNCS_IN('dgettext gettext', 'intl', checklibc=False, headers='libintl.h'):
+             # save for dependency definitions
+             conf.env.intl_libs='intl'
+             # recheck with libintl
+             conf.CHECK_FUNCS_IN('bindtextdomain textdomain bind_textdomain_codeset',
+                             'intl', checklibc=False, headers='libintl.h')
++        # others (the ones with glibc, those are in libc)
++        elif conf.CHECK_FUNCS_IN('dgettext gettext', '', checklibc=True, headers='libintl.h'):
++            # save for dependency definitions
++            conf.env.intl_libs=''
+         else:
+             # Some hosts need lib iconv for linking with lib intl
+             # So we try with flags just in case it helps.
