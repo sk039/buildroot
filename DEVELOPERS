@@ -185,6 +185,7 @@ F:	package/espeak/
 
 N:	Arnout Vandecappelle <arnout@mind.be>
 F:	package/arp-scan/
+F:	package/dehydrated/
 F:	package/freescale-imx/firmware-imx/
 F:	package/freescale-imx/imx-lib/
 F:	package/gstreamer/gst-fsl-plugins/
@@ -195,6 +196,7 @@ F:	package/sqlcipher/
 F:	package/stress/
 
 N:	Asaf Kahlon <asafka7@gmail.com>
+F:	package/libuv/
 F:	package/python-jsonmodels/
 F:	package/python-reentry/
 F:	package/python-subprocess32/
@@ -695,6 +697,7 @@ F:	package/gupnp-tools/
 F:	package/hiredis/
 F:	package/i2pd/
 F:	package/igd2-for-linux/
+F:	package/json-c/
 F:	package/lcms2/
 F:	package/lftp/
 F:	package/libcap-ng/
@@ -722,8 +725,11 @@ F:	package/libraw1394/
 F:	package/libroxml/
 F:	package/librsvg/
 F:	package/librsync/
+F:	package/libsoup/
+F:	package/libsoxr/
 F:	package/libupnp/
 F:	package/libupnp18/
+F:	package/libxslt/
 F:	package/mbedtls/
 F:	package/minissdpd/
 F:	package/motion/
@@ -735,6 +741,7 @@ F:	package/rygel/
 F:	package/safeclib/
 F:	package/tinycbor/
 F:	package/tinydtls/
+F:	package/tinymembench/
 F:	package/whois/
 
 N:	Falco Hyfing <hyfinglists@gmail.com>
@@ -961,6 +968,7 @@ N:	Jeremy Rosen <jeremy.rosen@openwide.fr>
 F:	package/fxload/
 
 N:	Joel Carlson <JoelsonCarl@gmail.com>
+F:	package/cmocka/
 F:	package/flatcc/
 
 N:	Joel Stanley <joel@jms.id.au>
@@ -969,6 +977,8 @@ F:	board/qemu/ppc64le-pseries/
 F:	configs/qemu_ppc64le_pseries_defconfig
 
 N:	Joseph Kogut <joseph.kogut@gmail.com>
+F:	package/at-spi2-atk/
+F:	package/at-spi2-core/
 F:	package/gconf/
 F:	package/libnss/
 F:	package/python-cython/
@@ -1534,6 +1544,7 @@ F:	package/python-pam/
 F:	package/python-psutil/
 F:	package/python-request-id/
 F:	package/python-texttable/
+F:	package/python-validators/
 F:	package/python-webob/
 F:	package/python-websocket-client/
 F:	package/triggerhappy/
@@ -1657,6 +1668,9 @@ N:	Rodrigo Rebello <rprebello@gmail.com>
 F:	package/chocolate-doom/
 F:	package/irssi/
 F:	package/vnstat/
+
+N:	Roman Gorbenkov <roman.gorbenkov@ens2m.org>
+F:	package/davfs2/
 
 N:	Romain Naour <romain.naour@gmail.com>
 F:	package/aubio/
@@ -1868,12 +1882,11 @@ F:	package/lcdproc/
 F:	package/python-influxdb/
 
 N:	Sven Neumann <neumann@teufel.de>
-F:	package/gstreamer1/gst1-libav/
-
-N:	Sven Neumann <s.neumann@raumfeld.com>
 F:	package/glib-networking/
+F:	package/gstreamer1/gst1-libav/
 F:	package/libmms/
 F:	package/orc/
+F:	package/wampcc/
 
 N:	Sébastien Szymanski <sebastien.szymanski@armadeus.com>
 F:	package/mmc-utils/
