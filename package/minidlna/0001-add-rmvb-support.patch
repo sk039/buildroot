@@ -1,0 +1,38 @@
+diff -Nur minidlna-1.2.1.orig/metadata.c minidlna-1.2.1/metadata.c
+--- minidlna-1.2.1.orig/metadata.c	2017-08-25 01:28:25.000000000 +0800
++++ minidlna-1.2.1/metadata.c	2018-06-20 17:09:44.806434189 +0800
+@@ -844,6 +844,10 @@
+ 			xasprintf(&m.mime, "video/x-matroska");
+ 		else if( strcmp(ctx->iformat->name, "flv") == 0 )
+ 			xasprintf(&m.mime, "video/x-flv");
++		else if( strcmp(ctx->iformat->name, "rm") == 0 )
++			xasprintf(&m.mime, "video/x-pn-realvideo");
++		else if( strcmp(ctx->iformat->name, "rmvb") == 0 )
++			xasprintf(&m.mime, "video/x-pn-realvideo");
+ 		if( m.mime )
+ 			goto video_no_dlna;
+ 
+diff -Nur minidlna-1.2.1.orig/upnpglobalvars.h minidlna-1.2.1/upnpglobalvars.h
+--- minidlna-1.2.1.orig/upnpglobalvars.h	2017-08-25 01:28:25.000000000 +0800
++++ minidlna-1.2.1/upnpglobalvars.h	2018-06-20 17:10:18.984671760 +0800
+@@ -165,7 +165,8 @@
+ 	"http-get:*:audio/mp4:*," \
+ 	"http-get:*:audio/x-wav:*," \
+ 	"http-get:*:audio/x-flac:*," \
+-	"http-get:*:application/ogg:*"
++	"http-get:*:application/ogg:*" \
++	"http-get:*:video/x-pn-realvideo:*"
+ 
+ #define DLNA_FLAG_DLNA_V1_5      0x00100000
+ #define DLNA_FLAG_HTTP_STALLING  0x00200000
+diff -Nur minidlna-1.2.1.orig/utils.c minidlna-1.2.1/utils.c
+--- minidlna-1.2.1.orig/utils.c	2017-08-25 01:28:25.000000000 +0800
++++ minidlna-1.2.1/utils.c	2018-06-20 17:12:54.036702389 +0800
+@@ -399,6 +399,7 @@
+ 		ends_with(file, ".m2t") || ends_with(file, ".mkv")   ||
+ 		ends_with(file, ".vob") || ends_with(file, ".ts")    ||
+ 		ends_with(file, ".flv") || ends_with(file, ".xvid")  ||
++		ends_with(file, ".rm") || ends_with(file, ".rmvb")  ||
+ #ifdef TIVO_SUPPORT
+ 		ends_with(file, ".TiVo") ||
+ #endif
