@@ -1,0 +1,9 @@
+#!/bin/sh
+
+OUT=build-host_x86-aarch64
+
+if [ ! -d $OUT ]; then mkdir -p $OUT; fi
+if [ ! -f $OUT/.config ]; then cp config-20180629 $OUT/.config; fi
+if [ ! -f $OUT/.config-busybox ]; then cp config_busybox-20180629 $OUT/.config-busybox; fi
+
+make O=$OUT $@
